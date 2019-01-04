@@ -6,4 +6,5 @@
 
   roles:
     - ansible-java8-oracle
+    - tomcat9
 
