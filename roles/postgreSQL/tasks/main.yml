@@ -1,1 +1,7 @@
 ---
+- name: Install postgreSQL
+  apt: name={{item}}
+  with_items:
+        - postgresql
+        - postgresql-contrib
+        - postgresql-client
