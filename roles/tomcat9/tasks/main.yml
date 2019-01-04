@@ -1,6 +1,6 @@
 ---
 - name: Download tomcat
-  shell: curl -O http://mirror.cc.columbia.edu/pub/software/apache/tomcat/tomcat-9/v9.0.10/bin/apache-tomcat-9.0.10.tar.gz
+  shell: curl -O http://mirror.cc.columbia.edu/pub/software/apache/tomcat/tomcat-9/v9.0.14/bin/apache-tomcat-9.0.14.tar.gz
       
 - name: Extract tomcat
   command: /bin/tar xzf /tmp/apache-tomcat.tar.gz -C /opt/tomcat creates=/opt/tomcat
