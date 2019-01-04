@@ -5,7 +5,7 @@
   become: true
 
   roles:
-    - apt-get-update
+#    - apt-get-update
 #    - ansible-java8-oracle
 #    - tomcat9
-
+    - maven
