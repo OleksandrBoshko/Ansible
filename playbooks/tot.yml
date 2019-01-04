@@ -5,6 +5,7 @@
   become: true
 
   roles:
-    - ansible-java8-oracle
-    - tomcat9
+    - apt-get-update
+#    - ansible-java8-oracle
+#    - tomcat9
 
