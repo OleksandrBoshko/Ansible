@@ -1,9 +1,9 @@
 ---
 - name: Set up api_ansible
-  hosts: logs
+  hosts: secondary
   remote_user: root 
   become: true
 
   roles:
-    - apache
+    - ansible-java8-oracle
 
