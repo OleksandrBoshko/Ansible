@@ -1,1 +1,21 @@
 ---
+    - name: Download tomcat
+      get_url: http://mirror.cc.columbia.edu/pub/software/apache/tomcat/tomcat-9/v9.0.10/bin/apache-tomcat-9.0.10.tar.gz dest=/tmp/apache-tomcat.tar.gz 
+
+    - name: Extract tomcat
+      command: /bin/tar xzf /tmp/apache-tomcat.tar.gz -C /opt/tomcat creates=/opt/tomcat
+
+    - name: Create tomcat group
+      group: name=tomcat
+
+    - name: Create tomcat user
+      user: name=tomcat group=tomcat home=/opt/tomcat
+
+    - name: Change tomcat directory permissions
+      file: path=/opt/tomcat owner=tomcat group=tomcat state=directory recurse=yes
+
+    - name: Add tomcat systemd unit file
+      copy: src=files/tomcat.service dest=/etc/systemd/system/tomcat.service owner=root group=root
+
+    - name: Start tomcat
+      service: name=tomcat state=restarted enabled=yes
