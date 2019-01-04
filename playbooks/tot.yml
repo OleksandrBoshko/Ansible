@@ -8,4 +8,5 @@
 #    - apt-get-update
 #    - ansible-java8-oracle
 #    - tomcat9
-    - maven
+#    - maven
+    - postgreSQL
