@@ -8,7 +8,7 @@
     state: directory
  
 - name: Extract tomcat
-  command: /bin/tar xzf warn=False /tmp/apache-tomcat.tar.gz -C /opt/tomcat
+  command: /bin/tar xzf warn=False /tmp/apache-tomcat.tar.gz -C /opt/tomcat .
 
 - name: Create tomcat group
   group: name=tomcat
