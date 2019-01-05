@@ -3,6 +3,7 @@
   file:
     path: ~/Geocitizen
     state: directory
+    
 - name: Clone a Geocitizen repository from GitHub into /Geocitizen.
   git:
     repo: git@github.com:OleksandrBoshko/Geocitizen.git
@@ -11,3 +12,8 @@
     accept_hostkey: yes
   # ssh-agent doesn't allow key to pass through remote sudo commands.
   become: no
+  
+- name: Maven build
+  command: cd ~/Geocitizen && mvn clean install
+  
+  
