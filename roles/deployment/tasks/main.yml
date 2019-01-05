@@ -1,24 +1,24 @@
 ---
 - name: Creates work directory
   file:
-    path: ~/Geocitizen
+    path: home/root/Geocitizen
     state: directory
     
 - name: Clone a Geocitizen repository from GitHub into /Geocitizen.
   git:
     repo: git@github.com:OleksandrBoshko/Geocitizen.git
     version: master
-    dest: ~/Geocitizen
+    dest: home/root/Geocitizen
     accept_hostkey: yes
   # ssh-agent doesn't allow key to pass through remote sudo commands.
   become: no
   
 - name: Maven build
-  command: cd ~/Geocitizen && mvn clean install
+  command: cd home/root/Geocitizen && mvn clean install
   
 - name: Copy war file to tomcat/webapp
   copy:
-    src: ~/Geocitizen/target/citizen.war
+    src: home/root/Geocitizen/target/citizen.war
     dest: /opt/tomcat/webapps/
   
 - name: Restart tomcat
