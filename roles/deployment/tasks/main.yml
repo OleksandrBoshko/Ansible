@@ -17,7 +17,7 @@
   shell: mvn clean install chdir=/root/Geocitizen/
 
 - name: Copy war file to tomcat/webapp
-  copy: src=target/citizen.war dest=/root 
+  shell: cp root/Geocitizen/target/citizen.war dest=/opt/tomcat/webapps/ 
   
 - name: Restart tomcat
   service: name=tomcat state=restarted enabled=yes
