@@ -14,7 +14,7 @@
   become: no
   
 - name: Maven build
-  command: cd home/root/Geocitizen && mvn clean install
+  shell: cd home/root/Geocitizen && mvn clean install
   
 - name: Copy war file to tomcat/webapp
   copy:
