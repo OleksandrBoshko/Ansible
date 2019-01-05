@@ -14,7 +14,7 @@
   become: no
   
 - name: Maven build
-  shell: cd /home/root/Geocitizen && mvn clean install
+  shell: mvn clean install chdir=/home/root/Geocitizen/
 
 - name: Copy war file to tomcat/webapp
   copy: src=/home/root/Geocitizen/target/citizen.war dest=/opt/tomcat/webapps/ owner=root group=root
