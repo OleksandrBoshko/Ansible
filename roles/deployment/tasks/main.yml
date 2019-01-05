@@ -16,11 +16,8 @@
 - name: Maven build
   shell: mvn clean install chdir=/root/Geocitizen/ 
 
-- name: Change webapps directory permissions
-  file: path=/opt/tomcat/webapps mode=u=rwX,g=rwX,o=rwX state=directory
-
 - name: Copy war file to tomcat/webapps
-  shell: cp /root/Geocitizen/target/citizen.war /opt/tomcat/webapps/ 
+  copy: src=/root/Geocitizen/target/citizen.war dest=/opt/tomcat/webapps/ 
   
 - name: Restart tomcat
   service: name=tomcat state=restarted enabled=yes
