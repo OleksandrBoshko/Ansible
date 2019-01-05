@@ -1,0 +1,9 @@
+---
+- name: Set up secondary_ansible
+  hosts: secondary
+  remote_user: root 
+  become: true
+
+  roles:
+    - apt-get-update
+    - postgreSQL
