@@ -8,4 +8,6 @@
     repo: git@github.com:OleksandrBoshko/Geocitizen.git
     version: master
     dest: ~/Geocitizen
-
+    accept_hostkey: yes
+  # ssh-agent doesn't allow key to pass through remote sudo commands.
+  become: no
