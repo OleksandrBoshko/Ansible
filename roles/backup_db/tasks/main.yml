@@ -1,1 +1,9 @@
-ffffffffffff
+---
+- name: Start backup
+  shell: psql -c "select pg_start_backup('initial_backup');"
+
+- name: rsync
+  shell: rsync -cva --inplace --exclude=*pg_xlog* /var/lib/postgresql/10/main/ 192.168.122.73:/var/lib/postgresql/10/main/
+  
+- name: Stop backup
+  shell: psql -c "select pg_stop_backup();"
