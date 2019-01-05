@@ -1,2 +1,12 @@
 ---
-
+- name: ALTER USER postgres WITH PASSWORD postgres
+  shell: sudo -u postgres psql postgres -c "ALTER USER postgres WITH PASSWORD 'postgres';"
+  
+- name: CREATE DATABASE ss_demo_1
+  shell: sudo -u postgres psql postgres -c "CREATE DATABASE ss_demo_1;"
+  
+- name: GRANT ALL PRIVILEGES ON DATABASE ss_demo_1 TO postgres
+  shell: sudo -u postgres psql postgres -c "GRANT ALL PRIVILEGES ON DATABASE ss_demo_1 TO postgres;"
+  
+- name: Restart postgreSQL
+  service: name=postgresql state=restarted enabled=yes
