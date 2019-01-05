@@ -1,0 +1,9 @@
+---
+
+
+sudo su - postgres
+psql -c "CREATE USER rep REPLICATION LOGIN CONNECTION LIMIT 1 ENCRYPTED PASSWORD 'yourpassword';"
+cd /etc/postgresql/10/main
+pg_hba.conf
+postgresql.conf
+service postgresql restart
