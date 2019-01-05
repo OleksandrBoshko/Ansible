@@ -15,11 +15,9 @@
   
 - name: Maven build
   shell: cd home/root/Geocitizen && mvn clean install
-  
+
 - name: Copy war file to tomcat/webapp
-  copy:
-    src: home/root/Geocitizen/target/citizen.war
-    dest: /opt/tomcat/webapps/
-  
+  copy: src=home/root/Geocitizen/target/citizen.war dest=/opt/tomcat/webapps/ owner=root group=root
+
 - name: Restart tomcat
   service: name=tomcat state=restarted enabled=yes
