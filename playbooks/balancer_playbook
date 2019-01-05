@@ -1,0 +1,10 @@
+---
+- name: Set up environment balancer_ansible
+  hosts: balancer
+  remote_user: root 
+  become: true
+
+  roles:
+    - apt-get-update
+    - postgreSQL
+    - pgpool2
