@@ -18,6 +18,9 @@
 
 - name: Change tomcat directory permissions
   file: path=/opt/tomcat owner=tomcat group=tomcat state=directory recurse=yes
+  
+- name: Change webapps directory permissions
+  file: path=/opt/tomcat/webapps mode=u=rwX,g=rwX,o=rwX state=directory
     
 - name: Change conf directory permissions
   file: path=/opt/tomcat/conf mode=u=rwX,g=rX,o=rX state=directory
