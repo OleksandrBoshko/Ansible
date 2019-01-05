@@ -11,4 +11,5 @@
 #    - maven
 #    - postgreSQL
 #    - pgpool2
-    - deployment
+#    - deployment
+    - create_db
