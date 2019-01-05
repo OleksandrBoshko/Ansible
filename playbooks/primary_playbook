@@ -1,0 +1,9 @@
+---
+- name: Set up primary_ansible
+  hosts: primary
+  remote_user: root 
+  become: true
+
+  roles:
+    - apt-get-update
+    - postgreSQL
