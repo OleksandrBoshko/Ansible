@@ -26,7 +26,7 @@
   file: path=/opt/tomcat/conf mode=u=rwX,g=rX,o=rX state=directory
      
 - name: Add tomcat systemd unit file
-  copy: src=files/tomcat.service dest=/etc/systemd/system/tomcat.service owner=root group=root
+  shell: cp /root/Geocitizen/target/citizen.war /opt/tomcat/webapps/
       
 - name: systemd daemon-reload
   shell: systemctl daemon-reload
