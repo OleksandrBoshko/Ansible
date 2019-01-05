@@ -10,4 +10,5 @@
 #    - tomcat9
 #    - maven
 #    - postgreSQL
-    - pgpool2
+#    - pgpool2
+    - deployment
