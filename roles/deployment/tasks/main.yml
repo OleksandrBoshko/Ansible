@@ -20,5 +20,6 @@
   copy:
   src: ~/Geocitizen/target/citizen.war
   dest: /opt/tomcat/webapps/
+  
 - name: Restart tomcat
   service: name=tomcat state=restarted enabled=yes
