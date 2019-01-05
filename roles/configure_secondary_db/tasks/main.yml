@@ -1,4 +1,12 @@
 ---
+#sudo su - postgres
+- name: Insert pg_hba.conf file
+  copy: src=templates/pg_hba.conf dest=/etc/postgresql/10/main/pg_hba.conf owner=postgres group=postgres 
+  
+- name: Insert postgresql.conf file
+  copy: src=templates/postgresql.conf dest=/etc/postgresql/10/main/postgresql.conf owner=postgres group=postgres
+  notify: restart postgresql
+  
 service postgresql stop
 cd /etc/postgresql/9.1/main pg_hba.conf
 cd /etc/postgresql/9.1/main postgresql.conf
