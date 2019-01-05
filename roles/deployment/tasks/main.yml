@@ -1,1 +1,11 @@
 ---
+- name: Creates work directory
+  file:
+    path: ~/Geocitizen
+    state: directory
+- name: Clone a Geocitizen repository from GitHub into /Geocitizen.
+  git:
+    repo: git@github.com:OleksandrBoshko/Geocitizen.git
+    version: master
+    dest: ~/Geocitizen
+
