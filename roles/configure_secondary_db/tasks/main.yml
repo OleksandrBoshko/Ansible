@@ -5,13 +5,7 @@
   
 - name: Insert postgresql.conf file
   copy: src=templates/postgresql.conf dest=/etc/postgresql/10/main/postgresql.conf owner=postgres group=postgres
-  notify: restart postgresql
   
-service postgresql stop
-cd /etc/postgresql/9.1/main pg_hba.conf
-cd /etc/postgresql/9.1/main postgresql.conf
-cd /var/lib/postgresql/9.1/main nano recovery.conf
-
-standby_mode = 'on'
-primary_conninfo = 'host=192.168.122.211 port=5432 user=postgres password=postgres'
-trigger_file = '/tmp/postgresql.trigger.5432'
+- name: Insert recovery.conf file
+  copy: src=templates/recovery.conf dest=/var/lib/postgresql/10/main/recovery.conf owner=postgres group=postgres
+  notify: restart postgresql
