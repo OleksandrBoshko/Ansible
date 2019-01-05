@@ -1,6 +1,6 @@
 ---
-- name: Set up api_ansible
-  hosts: api
+- name: Set up logs_ansible
+  hosts: logs
   remote_user: root 
   become: true
 
