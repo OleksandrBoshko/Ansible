@@ -1,0 +1,12 @@
+---
+- name: Set up environment api_ansible
+  hosts: api
+  remote_user: root 
+  become: true
+
+  roles:
+    - apt-get-update
+    - ansible-java8-oracle
+    - maven
+    - tomcat9
+    
