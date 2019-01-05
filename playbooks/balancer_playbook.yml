@@ -1,5 +1,5 @@
 ---
-- name: Set up environment balancer_ansible
+- name: Set up balancer_ansible
   hosts: balancer
   remote_user: root 
   become: true
