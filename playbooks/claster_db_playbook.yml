@@ -31,10 +31,7 @@
   become_user: postgres
   roles:
     - configure_secondary_db
-  
-  tasks:
-     - name: Service postgresql stop
-     - shell: service postgresql stop
+    - service_postgresql_stop
      
 - name: Backup primary_ansible
   hosts: primary
@@ -47,7 +44,5 @@
   hosts: secondary
   remote_user: root 
   become_user: postgres
- 
-  tasks:
-     - name: Service postgresql start
-     - shell: service postgresql start
+  roles:
+    - service_postgresql_start
