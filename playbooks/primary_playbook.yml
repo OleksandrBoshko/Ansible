@@ -7,3 +7,4 @@
   roles:
     - apt-get-update
     - postgreSQL
+    - ufw_db
