@@ -1,6 +1,6 @@
 ---
 - name: Set up primary_ansible
-  hosts: primary
+  hosts: logs
   remote_user: root 
   become: true
 
@@ -8,3 +8,11 @@
     - apt-get-update
     - postgreSQL
     - ufw_db
+    
+- name: Configure primary_ansible
+  hosts: logs
+  remote_user: postgres 
+  become: true
+
+  roles:
+    - configure_primary_db
