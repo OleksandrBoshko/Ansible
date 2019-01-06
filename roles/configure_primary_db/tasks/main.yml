@@ -5,4 +5,3 @@
   
 - name: Insert postgresql.conf file
   copy: src=templates/postgresql.conf dest=/etc/postgresql/10/main/postgresql.conf owner=postgres group=postgres
-  notify: restart postgresql
