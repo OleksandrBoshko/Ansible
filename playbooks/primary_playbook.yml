@@ -1,9 +1,8 @@
 ---
 - name: Set up primary_ansible
-  hosts: balancer
+  hosts: primary
   remote_user: root 
   become: true
-
   roles:
     - apt-get-update
     - postgreSQL
@@ -11,9 +10,44 @@
 #    - create_db
     
 - name: Configure primary_ansible
-  hosts: balancer
+  hosts: primary
   remote_user: root 
   become_user: postgres
-
   roles:
     - configure_primary_db
+    
+- name: Set up secondary_ansible
+  hosts: secondary
+  remote_user: root 
+  become: true
+  roles:
+    - apt-get-update
+    - postgreSQL
+    - ufw_db
+    
+- name: Configure secondary_ansible
+  hosts: secondary
+  remote_user: root 
+  become_user: postgres
+  roles:
+    - configure_secondary_db
+  
+  tasks:
+     - name: Service postgresql stop
+     - shell: service postgresql stop
+     
+- name: Backup primary_ansible
+  hosts: primary
+  remote_user: root 
+  become_user: postgres
+  roles:
+    - backup_db
+    
+- name: Configure secondary_ansible
+  hosts: secondary
+  remote_user: root 
+  become_user: postgres
+ 
+  tasks:
+     - name: Service postgresql start
+     - shell: service postgresql start
