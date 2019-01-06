@@ -1,3 +1,3 @@
 ---
 - name: Service postgresql stop
-- shell: service postgresql stop
+  shell: service postgresql stop
