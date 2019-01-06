@@ -16,5 +16,4 @@
   become_user: postgres
 
   roles:
-    - postgresql_user
     - configure_primary_db
