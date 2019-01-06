@@ -1,1 +1,60 @@
 ---
+- name: Set up api_ansible
+  hosts: api
+  remote_user: root 
+  become: true
+
+  roles:
+    - apt-get-update
+    - ansible-java8-oracle
+    - maven
+    - tomcat9
+    - ufw_api
+    - deployment
+    
+- name: Set up primary_ansible
+  hosts: primary
+  remote_user: root 
+  become: true
+  roles:
+    - apt-get-update
+    - postgreSQL
+    - ufw_db
+#    - create_db
+    
+- name: Configure primary_ansible
+  hosts: primary
+  remote_user: root 
+  become_user: postgres
+  roles:
+    - configure_primary_db
+    
+- name: Set up secondary_ansible
+  hosts: secondary
+  remote_user: root 
+  become: true
+  roles:
+    - apt-get-update
+    - postgreSQL
+    - ufw_db
+    
+- name: Configure secondary_ansible
+  hosts: secondary
+  remote_user: root 
+  become_user: postgres
+  roles:
+    - configure_secondary_db
+    - service_postgresql_stop
+     
+- name: Backup primary_ansible
+  hosts: primary
+  remote_user: postgres
+  roles:
+    - backup_db
+    
+- name: Configure secondary_ansible
+  hosts: secondary
+  remote_user: root 
+  become_user: postgres
+  roles:
+    - service_postgresql_start
