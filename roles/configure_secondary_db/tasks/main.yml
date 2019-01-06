@@ -8,4 +8,3 @@
   
 - name: Insert recovery.conf file
   copy: src=templates/recovery.conf dest=/var/lib/postgresql/10/main/recovery.conf owner=postgres group=postgres
-  notify: restart postgresql
