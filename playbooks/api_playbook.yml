@@ -9,5 +9,5 @@
     - ansible-java8-oracle
     - maven
     - tomcat9
+    - ufw_api
     - deployment
-    
