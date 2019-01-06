@@ -1,6 +1,6 @@
 ---
 - name: Set up primary_ansible
-  hosts: logs
+  hosts: balancer
   remote_user: root 
   become: true
 
@@ -10,7 +10,7 @@
     - ufw_db
     
 - name: Configure primary_ansible
-  hosts: logs
+  hosts: balancer
   remote_user: postgres 
   become: true
 
