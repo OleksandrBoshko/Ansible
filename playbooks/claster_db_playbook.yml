@@ -36,8 +36,6 @@
 - name: Backup primary_ansible
   hosts: primary
   remote_user: postgres
-#  become: true
-#  become_user: postgres
   roles:
     - backup_db
     
