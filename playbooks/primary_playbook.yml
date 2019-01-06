@@ -8,7 +8,7 @@
     - apt-get-update
     - postgreSQL
     - ufw_db
-    - create_db
+#    - create_db
     
 - name: Configure primary_ansible
   hosts: balancer
