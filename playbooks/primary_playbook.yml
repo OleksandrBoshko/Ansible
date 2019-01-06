@@ -12,7 +12,7 @@
     
 - name: Configure primary_ansible
   hosts: balancer
-  remote_user: postgres 
+  remote_user: root 
   become_user: postgres
 
   roles:
